@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Genres{% endblock %}
+{% block body %}
+    <main>
+        <h1>{{ genre.nom }}</h1>
+        <p>{{ genre.description }}</p>
+        <ul>
+            {% for l in livres %}
+                <li>
+                    <a href="{{ path('app_livre_voir', {id:l.id}) }}">{{ l.titre }}</a>
+                </li>
+            {% endfor %}
+        </ul>
+    </main>
+{% endblock %}

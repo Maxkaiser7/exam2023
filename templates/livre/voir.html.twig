@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ livre.titre }}{% endblock %}
+
+{% block body %}
+    <main class="livre-wrapper">
+        <h1>{{ livre.titre }}
+            {% if livre.votes == vote_max %}
+                ⭐
+            {% endif %}</h1>
+
+        <p>{{ livre.resume }}</p>
+        <p>Sortie : {{ livre.dateParution|date('Y') }}</p>
+        <p>Auteur: {{ livre.auteur }}</p>
+        <p>Genre : {{ genre }}</p>
+        <span id="vote">
+            <form method="post" action="{{ path('app_livre_voter', {id:livre.id}) }}" class="form_vote">
+                <button name="vote" value="moins">-</button>
+                <p><b>{{ livre.votes }}</b></p>
+                <button name="vote" value="plus">+</button>
+            </form>
+        </span>
+        <a href="{{ path('app_livre_supprimer', {id:livre.id}) }}" class="supprimer">Supprimer ce livre</a>
+    </main>
+
+{% endblock %}

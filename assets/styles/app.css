@@ -1,5 +1,49 @@
 * {
-  background-color: #2e3136;
+  background-color: #dedede;
+  font-family: "Poppins", sans-serif;
+}
+
+a {
+  text-decoration: none;
+}
+
+li {
+  list-style: none;
+}
+
+.form_vote {
+  display: flex;
+  flex-direction: row;
+}
+.form_vote button {
+  padding: 0.6rem;
+  border: solid 1px #4c4c4c;
+  margin: 1rem;
+}
+.form_vote p {
+  padding: 0.6rem;
+}
+
+input {
+  padding: 0.5rem;
+  border: solid 1px #4c4c4c;
+  margin: 0.6rem;
+}
+
+select {
+  padding: 0.5rem;
+  border: solid 1px #4c4c4c;
+  margin: 0.6rem;
+}
+
+.enregistrer {
+  padding: 0.5rem;
+  border: solid 1px #4c4c4c;
+  margin: 0.6rem;
+}
+
+.supprimer {
+  color: red;
 }
 
 /*# sourceMappingURL=app.css.map */

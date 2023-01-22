@@ -3,12 +3,31 @@
     <head>
         <meta charset="UTF-8">
         <title>{% block title %}Welcome!{% endblock %}</title>
-        {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="{{ asset('build/app.css') }}">
     </head>
     <body>
+    <nav>
+        <a href="{{ path('app_accueil') }}">Accueil</a>
+        <a href="{{ path('app_genre') }}">Genres</a>
+        <a href="{{ path('app_livre_ajouter') }}">Ajouter un livre</a>
+        <a href="{{ path('app_genre_ajouter') }}">Ajouter un genre</a>
+    </nav>
         {% block body %}
-        <h2>HEYYYY</h2>
+            <h1>Tout les livres</h1>
+            <ul>
+            {% for l in livres  %}
+                <li>
+                    <a href="{{ path('app_livre_voir', {id:l.id}) }}">{{ l.titre }}</a>
+                    {% if l.votes == vote_max %}
+                        ⭐
+                    {% endif %}
+
+                </li>
+            {% endfor %}
+            </ul>
         {% endblock %}
     </body>
 </html>
